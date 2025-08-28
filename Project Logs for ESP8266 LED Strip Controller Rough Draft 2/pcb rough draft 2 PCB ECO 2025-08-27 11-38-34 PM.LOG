@@ -1,0 +1,22 @@
+Removed Pin From Net: NetName=GND Pin=J2-4
+Added Component: Designator=R6(RES_0201)
+Add component (AddParameter): Name = "Distributor Link"; Value = ""; VariantName = "[No Variations]"
+Add component (AddParameter): Name = "LCSC"; Value = ""; VariantName = "[No Variations]"
+Add component (AddParameter): Name = "Manufacturer"; Value = ""; VariantName = "[No Variations]"
+Add component (AddParameter): Name = "Manufacturer Part Number"; Value = ""; VariantName = "[No Variations]"
+Added Component: Designator=SW2(SKRPANE010)
+Add component (AddParameter): Name = "Manufacturer"; Value = "Alps Alpine"; VariantName = "[No Variations]"
+Add component (AddParameter): Name = "Manufacturer Part Number"; Value = "SKRPANE010"; VariantName = "[No Variations]"
+Added Pin To Net: NetName=3.3V Pin=R6-2
+Added Pin To Net: NetName=GND Pin=SW2-34
+Added Pin To Net: NetName=GND Pin=SW2-34
+Change Net Color : Old Net Color=Black New Net Color=Default
+Added Pin To Net: NetName=BOOT Pin=J2-4
+Added Pin To Net: NetName=BOOT Pin=R6-1
+Added Pin To Net: NetName=BOOT Pin=SW2-12
+Added Pin To Net: NetName=BOOT Pin=SW2-12
+Added Net: Name=BOOT
+Change Class Name : Old Net Name=official schematic New Net Name=schematic rough draft
+Added Member To Class: ClassName=schematic rough draft Member=Component R6 10k
+Added Member To Class: ClassName=schematic rough draft Member=Component SW2 BOOT
+Added Member To Class: ClassName=schematic rough draft Member=Component U2 ESP-12E
