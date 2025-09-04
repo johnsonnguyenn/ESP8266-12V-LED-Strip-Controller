@@ -16,7 +16,7 @@ A custom PCB design for an LED strip controller made in Altium Designer. The boa
 
 ![3D PCB](Images/3D_PCB.png)
 
-## What I have learned
+## Skills Gained
 
 - PCB design basics such as routing, grounding, polygon pour
 - Switching regulators and MOSFETs
