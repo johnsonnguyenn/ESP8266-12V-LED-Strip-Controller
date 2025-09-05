@@ -1,6 +1,6 @@
 # ESP8266 Led Strip Controller
 
-A custom PCB design for an LED strip controller made in Altium Designer. The board is built around the ESP8266-12E module and includes N-channel MOSFET drivers for controlling RGB LEDs. It features a 12V to 3.3V buck converter for power regulation, a Barrel Jack power input, and support for UART. 
+A custom PCB design for an LED strip controller made in Altium Designer. The board is built around the ESP8266-12E module and includes N-channel MOSFET drivers for controlling RGB LEDs. It features a 12V to 3.3V buck converter for power regulation, a barrel jack power input, and support for UART. 
 
 ## Schematic 
 
