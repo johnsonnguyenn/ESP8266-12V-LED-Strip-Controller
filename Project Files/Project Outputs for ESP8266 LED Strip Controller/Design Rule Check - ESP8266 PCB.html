@@ -1,0 +1,488 @@
+<html>
+<head>
+<META http-equiv="Content-Type" content="text/html">
+<style type="text/css">
+		h1, h2, h3, h4, h5, h6 {
+			font-family : segoe ui;
+			color : black;
+			background-color : #EDE7D9;
+			padding: 0.3em;
+		}
+
+		h1 {
+			font-size: 1.2em;
+		}		
+
+		h2 {
+			font-size: 1.2em;
+		}
+
+		body {
+			font-family : segoe ui;
+		}
+
+		td, th {
+			padding: 0.5em;
+			text-align : left;
+			width: 10em;
+		}
+		th {
+			background-color : #EEEEEE;
+
+		}
+		th.column1, td.column1 {
+			text-align: left;
+			width : auto;
+		}
+		table {
+			width : 100%;
+			font-size: 0.9em;
+		}
+
+		.DRC_summary_header {
+			padding-bottom : 0.1em;
+			border : 0px solid black;
+			width: 100%;
+			align: left;
+		}
+
+		.DRC_summary_header_col1,
+		.DRC_summary_header_col2, 
+		.DRC_summary_header_col3 {
+			color : black;
+			font-size:100%;
+			padding : 0em;
+			padding-top : 0.2em;
+			padding-bottom 0.2em;
+			border : 0px solid black;
+			vertical-align: top;
+			text-align: left;
+		}
+
+		.DRC_summary_header_col1 {
+			font-weight: bold;
+			width: 9em;
+		}
+
+		.DRC_summary_header_col2 {
+			width: 0.1em;
+		
+		}
+
+		.DRC_summary_header_col3 {
+			width : auto;
+		}
+
+		.header_holder {
+		    Width = 100%;
+		    border = 0px solid green;
+		    padding = 0;
+		}
+
+
+		.front_matter, .front_matter_column1, .front_matter_column2, .front_matter_column3
+		{
+			left : 0;
+			top : 0;
+			padding: 0em;
+			padding-top : 0.1em;
+			border : 0px solid black;
+			width : 100%;
+			vertical-align: top;
+			text-align: left;
+		}
+
+		.front_matter_column1 {
+			width : 8em;
+			font-weight: bold;
+		}
+
+		.front_matter_column2 {
+			width: 0.1em;
+		}
+
+		.front_matter_column3 {
+			width : auto;
+		}
+
+		.total_column1, .total_column {
+			font-weight : bold;
+		}
+		.total_column1 {
+			text-align : left;
+		}
+		.warning, .error {
+			color : red;
+			font-weight : bold;
+		}
+		tr.onmouseout_odd {
+			background-color : #white;
+		}
+		tr.onmouseout_even { 
+			background-color : #FAFAFA;
+		}
+		tr.onmouseover_odd, tr.onmouseover_even { 
+			background-color : #EEEEEE;
+		} 
+		a:link, a:visited, .q a:link,.q a:active,.q {
+			color: #21489e; 
+		}
+		a:link.callback, a:visited.callback { 
+			color: #21489e;
+		}
+		a:link.customize, a:visited.customize {
+			color: #C0C0C0;
+			position: absolute; 
+			right: 10px;
+		}	
+		p.contents_level1 {
+			font-weight : bold;
+			font-size : 110%;
+			margin : 0.5em;
+		}
+		p.contents_level2 {
+			position : relative;
+			left : 20px;
+			margin : 0.5em;
+		}
+	</style><script type="text/javascript">
+		function coordToMils(coord) {
+			var number = coord / 10000;
+			
+			if (number != number.toFixed(3))
+				number = number.toFixed(3);
+
+			return number + 'mil'
+		}
+
+		function coordToMM(coord) {
+			var number = 0.0254 * coord / 10000;
+			
+			if (number != number.toFixed(4))
+				number = number.toFixed(4);
+			
+			return number + 'mm'
+		}
+	
+		function convertCoord(coordNode, units) {
+			for (var i = 0; i < coordNode.childNodes.length; i++) {
+				coordNode.removeChild(coordNode.childNodes[i]);
+			}
+
+			var coord = coordNode.getAttribute('value');
+			if (coord != null) {
+				if (units == 'mm') {
+					textNode = document.createTextNode(coordToMM(coord));
+					coordNode.appendChild(textNode);
+				} else if (units == 'mil') {
+					textNode = document.createTextNode(coordToMils(coord));		
+					coordNode.appendChild(textNode);	
+				}
+			}
+		}
+	
+		function convertUnits(unitNode, units) {
+			for (var i = 0; i < unitNode.childNodes.length; i++) {
+				unitNode.removeChild(unitNode.childNodes[i]);		
+			}
+		
+			textNode = document.createTextNode(units); 
+			unitNode.appendChild(textNode);
+		}
+	
+		function changeUnits(radio_input, units) {
+			if (radio_input.checked) {
+			
+				var elements = document.getElementsByName('coordinate');
+				if (elements) {
+					for (var i = 0; i < elements.length; i++) {
+						convertCoord(elements[i], units);
+					}
+				}
+	
+				var elements = document.getElementsByName('units');
+				if (elements) {
+					for (var i = 0; i < elements.length; i++) {
+						convertUnits(elements[i], units);
+					}
+				}
+			}
+		}
+	</script><title>Design Rule Verification Report</title>
+</head>
+<body onload=""><img ALT="Altium" src="
+			file://C:\Users\Public\Documents\Altium\AD25\Templates\AD_logo.png
+		"><h1>Design Rule Verification Report</h1>
+<table class="header_holder">
+<td class="column1">
+<table class="front_matter">
+<tr class="front_matter">
+<td class="front_matter_column1">Date:</td>
+<td class="front_matter_column2"></td>
+<td class="front_matter_column3">2025-09-10</td>
+</tr>
+<tr class="front_matter">
+<td class="front_matter_column1">Time:</td>
+<td class="front_matter_column2"></td>
+<td class="front_matter_column3">7:18:23 PM</td>
+</tr>
+<tr class="front_matter">
+<td class="front_matter_column1">Elapsed Time:</td>
+<td class="front_matter_column2"></td>
+<td class="front_matter_column3">00:00:00</td>
+</tr>
+<tr class="front_matter">
+<td class="front_matter_column1">Filename:</td>
+<td class="front_matter_column2"></td>
+<td class="front_matter_column3"><a href="file:///C:\Users\Public\Documents\Altium\ESP8266 LED Strip Controller Rough Draft 2\ESP8266 PCB.PcbDoc" class="file"><acronym title="C:\Users\Public\Documents\Altium\ESP8266 LED Strip Controller Rough Draft 2\ESP8266 PCB.PcbDoc">C:\Users\Public\Documents\Altium\ESP8266 LED Strip Controller Rough Draft 2\ESP8266 PCB.PcbDoc</acronym></a></td>
+</tr>
+</table>
+</td>
+<td class="column2">
+<table class="DRC_summary_header">
+<tr>
+<td class="DRC_summary_header_col1">Warnings:</td>
+<td class="DRC_summary_header_col2"></td>
+<td class="DRC_summary_header_col3">0</td></tr>
+<tr>
+<td class="DRC_summary_header_col1">Rule Violations:</td>
+<td class="DRC_summary_header_col2"></td>
+<td class="DRC_summary_header_col3" style="color : red">44</td></tr>
+</table>
+</td>
+</table><a name="IDNZ2I2K5PFHQJGJI31KUVXWJHJHWD14WZ5NNGZNCZ2XVPJCWZIIHM"><h2>Summary</h2></a><table>
+<tr>
+<th class="column1">Warnings</th>
+<th class="column2">Count</th>
+</tr>
+<tr>
+<td style="font-weight : bold; text-align : right" class="column1">Total</td>
+<td style="font-weight : bold" class="column2">0</td>
+</tr>
+</table><br><table>
+<tr>
+<th class="column1">Rule Violations</th>
+<th class="column2">Count</th>
+</tr>
+<tr class="onmouseout_odd" onmouseover="className = 'onmouseover_odd'" onmouseout="className = 'onmouseout_odd'">
+<td class="column1"><a href="#IDOW0XIC5LZ3PYBG0LOUOLIKCP5IH1CQCBPHLT22B2DMJZP14Q022O">Clearance Constraint (Gap=0.203mm) (All),(All)</a></td>
+<td class="column2">16</td>
+</tr>
+<tr class="onmouseout_even" onmouseover="className = 'onmouseover_even'" onmouseout="className = 'onmouseout_even'">
+<td class="column1"><a href="#IDPPFWFTVV3RGBHKCDZLHSYKZ3DGUG1KIBFKMH2OBKWH5DILL0OIR">Short-Circuit Constraint (Allowed=No) (All),(All)</a></td>
+<td class="column2">0</td>
+</tr>
+<tr class="onmouseout_odd" onmouseover="className = 'onmouseover_odd'" onmouseout="className = 'onmouseout_odd'">
+<td class="column1"><a href="#IDLJC2MIRBAEMKLV3SZMMBISPYLNVKYBNQQIBZSKPN3FHZVKNJNW3G">Un-Routed Net Constraint ( (All) )</a></td>
+<td class="column2">1</td>
+</tr>
+<tr class="onmouseout_even" onmouseover="className = 'onmouseover_even'" onmouseout="className = 'onmouseout_even'">
+<td class="column1"><a href="#IDOKMDOSJHVXK0C333O5J0Q5WCVKVR4ANI035U11OZTUMUZAO3U4UO">Modified Polygon (Allow modified: No), (Allow shelved: No)</a></td>
+<td class="column2">0</td>
+</tr>
+<tr class="onmouseout_odd" onmouseover="className = 'onmouseover_odd'" onmouseout="className = 'onmouseout_odd'">
+<td class="column1"><a href="#IDWTCUXZ5LBM1OD0WJSAMBAU4MBYHHVPPUSIPRJCUMNY2SI1KNPTL">Width Constraint (Min=0.203mm) (Max=25.4mm) (Preferred=0.203mm) (All)</a></td>
+<td class="column2">0</td>
+</tr>
+<tr class="onmouseout_even" onmouseover="className = 'onmouseover_even'" onmouseout="className = 'onmouseout_even'">
+<td class="column1"><a href="#IDU1GVTXBN2ZQGJ0WYHHWAAHGKGLIO5UAPRACW3BL52YTKYORH1TXF">Routing Topology Rule(Topology=Shortest) (All)</a></td>
+<td class="column2">0</td>
+</tr>
+<tr class="onmouseout_odd" onmouseover="className = 'onmouseover_odd'" onmouseout="className = 'onmouseout_odd'">
+<td class="column1"><a href="#IDB5KGTVYNXZXXHKUWVAOHOI0CFOKXERCLS3R33YJDBDMY5EISECVD">Power Plane Connect Rule(Direct Connect )(Expansion=0.508mm) (Conductor Width=0.254mm) (Air Gap=0.254mm) (Entries=4) (InPadClass('PowerPads'))</a></td>
+<td class="column2">0</td>
+</tr>
+<tr class="onmouseout_even" onmouseover="className = 'onmouseover_even'" onmouseout="className = 'onmouseout_even'">
+<td class="column1"><a href="#IDW0G35OJ4CKCKILD0AQW5HGOK0LXW355IR01QDZLYSPCP3504Z5MF">Power Plane Connect Rule(Relief Connect )(Expansion=0.3mm) (Conductor Width=0.203mm) (Air Gap=0.203mm) (Entries=4) (All)</a></td>
+<td class="column2">0</td>
+</tr>
+<tr class="onmouseout_odd" onmouseover="className = 'onmouseover_odd'" onmouseout="className = 'onmouseout_odd'">
+<td class="column1"><a href="#IDEFULJH1KLKDGCQI1VBUNCCQA2NLD3GNU2URAWYKRLU3LQQAFJCOG">Minimum Annular Ring (Minimum=0.076mm) (All)</a></td>
+<td class="column2">0</td>
+</tr>
+<tr class="onmouseout_even" onmouseover="className = 'onmouseover_even'" onmouseout="className = 'onmouseout_even'">
+<td class="column1"><a href="#IDYC1NMRWNIXI4PHHYT5OJJO12VGK5GGMX15LP3MKK3ZZKE0AG0TUO">Hole Size Constraint (Min=0.3mm) (Max=6.3mm) (All)</a></td>
+<td class="column2">0</td>
+</tr>
+<tr class="onmouseout_odd" onmouseover="className = 'onmouseover_odd'" onmouseout="className = 'onmouseout_odd'">
+<td class="column1"><a href="#IDBBVJIYALSJQYNU1KCF5TPKDNPGAI4MPDR54NNAOUMDSMH0F0IKXL">Hole To Hole Clearance (Gap=0.25mm) (All),(All)</a></td>
+<td class="column2">0</td>
+</tr>
+<tr class="onmouseout_even" onmouseover="className = 'onmouseover_even'" onmouseout="className = 'onmouseout_even'">
+<td class="column1"><a href="#IDXVKIIBYZ4GVXMN4CF0HPZQEZMLPMURPL42OUXEERLQUQAZTVVEVE">Minimum Solder Mask Sliver (Gap=0mm) (All),(All)</a></td>
+<td class="column2">0</td>
+</tr>
+<tr class="onmouseout_odd" onmouseover="className = 'onmouseover_odd'" onmouseout="className = 'onmouseout_odd'">
+<td class="column1"><a href="#IDPOLXECIO154Q53RZSSL1GJIMDPVCESOJH4PXDIC44PASPUL0DXM">Silk To Solder Mask (Clearance=0.127mm) (IsPad),(All)</a></td>
+<td class="column2">0</td>
+</tr>
+<tr class="onmouseout_even" onmouseover="className = 'onmouseover_even'" onmouseout="className = 'onmouseout_even'">
+<td class="column1"><a href="#IDX14XKSQQTTLQKCPS3TRHVJMQLDP4F3CM2IGNTWKSKMGCFWMUMC2H">Silk to Silk (Clearance=0mm) (All),(All)</a></td>
+<td class="column2">0</td>
+</tr>
+<tr class="onmouseout_odd" onmouseover="className = 'onmouseover_odd'" onmouseout="className = 'onmouseout_odd'">
+<td class="column1"><a href="#IDD1RW2F445VO4MV3DREK42UBNJKWFHXMOJLLMO4GLHDH04DTFBCJE">Net Antennae (Tolerance=0mm) (All)</a></td>
+<td class="column2">26</td>
+</tr>
+<tr class="onmouseout_even" onmouseover="className = 'onmouseover_even'" onmouseout="className = 'onmouseout_even'">
+<td class="column1"><a href="#IDD2TQ4ZHWB2OHNVISHWUNHVPOCFHTPIIFI34OVFICGCD4BGIBTVKB">Board Clearance Constraint (Gap=0mm) (All)</a></td>
+<td class="column2">1</td>
+</tr>
+<tr class="onmouseout_odd" onmouseover="className = 'onmouseover_odd'" onmouseout="className = 'onmouseout_odd'">
+<td class="column1"><a href="#IDIPLOPOZVOGI5G1N1QNBISOKODIDJYEZXZTCNNPOIX0E0HFPAWZGK">Height Constraint (Min=0mm) (Max=1816.048mm) (Prefered=12.7mm) (All)</a></td>
+<td class="column2">0</td>
+</tr>
+<tr>
+<td style="font-weight : bold; text-align : right" class="column1">Total</td>
+<td style="font-weight : bold" class="column2">44</td>
+</tr>
+</table><br><a name="IDOW0XIC5LZ3PYBG0LOUOLIKCP5IH1CQCBPHLT22B2DMJZP14Q022O"><table>
+<tr>
+<th style="text-align : left" colspan="1" class="rule">Clearance Constraint (Gap=0.203mm) (All),(All)</th>
+</tr>
+<tr class="onmouseout_odd" onmouseover="className = 'onmouseover_odd'" onmouseout="className = 'onmouseout_odd'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=C:\Users\Public\Documents\Altium\ESP8266 LED Strip Controller Rough Draft 2\ESP8266 PCB.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=3723.721mil|Location2.X=3732.971mil|Location1.Y=2422.936mil|Location2.Y=2432.186mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=C:\Users\Public\Documents\Altium\ESP8266 LED Strip Controller Rough Draft 2\ESP8266 PCB.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=3723.721mil|Location2.X=3732.971mil|Location1.Y=2422.936mil|Location2.Y=2432.186mil|Absolute=True">Clearance Constraint: (0.2mm &lt; 0.203mm) Between Pad D1-1(95.8mm,62.86mm) on Multi-Layer And Polygon Region (16 hole(s)) Bottom Layer </acronym></a><br></td>
+</tr>
+<tr class="onmouseout_even" onmouseover="className = 'onmouseover_even'" onmouseout="className = 'onmouseout_even'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=C:\Users\Public\Documents\Altium\ESP8266 LED Strip Controller Rough Draft 2\ESP8266 PCB.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=4184.867mil|Location2.X=4195.96mil|Location1.Y=4285.955mil|Location2.Y=4300.055mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=C:\Users\Public\Documents\Altium\ESP8266 LED Strip Controller Rough Draft 2\ESP8266 PCB.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=4184.867mil|Location2.X=4195.96mil|Location1.Y=4285.955mil|Location2.Y=4300.055mil|Absolute=True">Clearance Constraint: (0.2mm &lt; 0.25mm) Between Hole of Pad Free-MH(107.85mm,110.025mm) on Multi-Layer And Polygon Region (16 hole(s)) Bottom Layer </acronym></a><br></td>
+</tr>
+<tr class="onmouseout_odd" onmouseover="className = 'onmouseover_odd'" onmouseout="className = 'onmouseout_odd'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=C:\Users\Public\Documents\Altium\ESP8266 LED Strip Controller Rough Draft 2\ESP8266 PCB.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=4206.286mil|Location2.X=4220.462mil|Location1.Y=2243.922mil|Location2.Y=2255.015mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=C:\Users\Public\Documents\Altium\ESP8266 LED Strip Controller Rough Draft 2\ESP8266 PCB.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=4206.286mil|Location2.X=4220.462mil|Location1.Y=2243.922mil|Location2.Y=2255.015mil|Absolute=True">Clearance Constraint: (0.2mm &lt; 0.25mm) Between Hole of Pad Free-MH(107.925mm,58.55mm) on Multi-Layer And Polygon Region (16 hole(s)) Bottom Layer </acronym></a><br></td>
+</tr>
+<tr class="onmouseout_even" onmouseover="className = 'onmouseover_even'" onmouseout="className = 'onmouseout_even'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=C:\Users\Public\Documents\Altium\ESP8266 LED Strip Controller Rough Draft 2\ESP8266 PCB.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=2597.034mil|Location2.X=2611.21mil|Location1.Y=2243.922mil|Location2.Y=2255.015mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=C:\Users\Public\Documents\Altium\ESP8266 LED Strip Controller Rough Draft 2\ESP8266 PCB.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=2597.034mil|Location2.X=2611.21mil|Location1.Y=2243.922mil|Location2.Y=2255.015mil|Absolute=True">Clearance Constraint: (0.2mm &lt; 0.25mm) Between Hole of Pad Free-MH(67.05mm,58.55mm) on Multi-Layer And Polygon Region (16 hole(s)) Bottom Layer </acronym></a><br></td>
+</tr>
+<tr class="onmouseout_odd" onmouseover="className = 'onmouseover_odd'" onmouseout="className = 'onmouseout_odd'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=C:\Users\Public\Documents\Altium\ESP8266 LED Strip Controller Rough Draft 2\ESP8266 PCB.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=2576.599mil|Location2.X=2587.692mil|Location1.Y=4278.081mil|Location2.Y=4292.181mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=C:\Users\Public\Documents\Altium\ESP8266 LED Strip Controller Rough Draft 2\ESP8266 PCB.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=2576.599mil|Location2.X=2587.692mil|Location1.Y=4278.081mil|Location2.Y=4292.181mil|Absolute=True">Clearance Constraint: (0.2mm &lt; 0.25mm) Between Hole of Pad Free-MH(67mm,109.825mm) on Multi-Layer And Polygon Region (16 hole(s)) Bottom Layer </acronym></a><br></td>
+</tr>
+<tr class="onmouseout_even" onmouseover="className = 'onmouseover_even'" onmouseout="className = 'onmouseout_even'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=C:\Users\Public\Documents\Altium\ESP8266 LED Strip Controller Rough Draft 2\ESP8266 PCB.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=4031.887mil|Location2.X=4043.879mil|Location1.Y=2963.064mil|Location2.Y=2972.314mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=C:\Users\Public\Documents\Altium\ESP8266 LED Strip Controller Rough Draft 2\ESP8266 PCB.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=4031.887mil|Location2.X=4043.879mil|Location1.Y=2963.064mil|Location2.Y=2972.314mil|Absolute=True">Clearance Constraint: (0.061mm &lt; 0.203mm) Between Pad J1-1(104.4mm,76mm) on Multi-Layer And Polygon Region (16 hole(s)) Bottom Layer </acronym></a><br></td>
+</tr>
+<tr class="onmouseout_odd" onmouseover="className = 'onmouseover_odd'" onmouseout="className = 'onmouseout_odd'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=C:\Users\Public\Documents\Altium\ESP8266 LED Strip Controller Rough Draft 2\ESP8266 PCB.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=4270.077mil|Location2.X=4282.068mil|Location1.Y=2793.773mil|Location2.Y=2803.023mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=C:\Users\Public\Documents\Altium\ESP8266 LED Strip Controller Rough Draft 2\ESP8266 PCB.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=4270.077mil|Location2.X=4282.068mil|Location1.Y=2793.773mil|Location2.Y=2803.023mil|Absolute=True">Clearance Constraint: (0.061mm &lt; 0.203mm) Between Pad J1-3(109.1mm,72.8mm) on Multi-Layer And Polygon Region (16 hole(s)) Bottom Layer </acronym></a><br></td>
+</tr>
+<tr class="onmouseout_even" onmouseover="className = 'onmouseover_even'" onmouseout="className = 'onmouseout_even'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=C:\Users\Public\Documents\Altium\ESP8266 LED Strip Controller Rough Draft 2\ESP8266 PCB.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=4269.277mil|Location2.X=4279.604mil|Location1.Y=4075.804mil|Location2.Y=4086.202mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=C:\Users\Public\Documents\Altium\ESP8266 LED Strip Controller Rough Draft 2\ESP8266 PCB.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=4269.277mil|Location2.X=4279.604mil|Location1.Y=4075.804mil|Location2.Y=4086.202mil|Absolute=True">Clearance Constraint: (0.059mm &lt; 0.203mm) Between Pad J2-1(107.9mm,104.3mm) on Multi-Layer And Polygon Region (16 hole(s)) Bottom Layer </acronym></a><br></td>
+</tr>
+<tr class="onmouseout_odd" onmouseover="className = 'onmouseover_odd'" onmouseout="className = 'onmouseout_odd'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=C:\Users\Public\Documents\Altium\ESP8266 LED Strip Controller Rough Draft 2\ESP8266 PCB.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=4269.277mil|Location2.X=4279.604mil|Location1.Y=3975.804mil|Location2.Y=3986.202mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=C:\Users\Public\Documents\Altium\ESP8266 LED Strip Controller Rough Draft 2\ESP8266 PCB.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=4269.277mil|Location2.X=4279.604mil|Location1.Y=3975.804mil|Location2.Y=3986.202mil|Absolute=True">Clearance Constraint: (0.059mm &lt; 0.203mm) Between Pad J2-2(107.9mm,101.76mm) on Multi-Layer And Polygon Region (16 hole(s)) Bottom Layer </acronym></a><br></td>
+</tr>
+<tr class="onmouseout_even" onmouseover="className = 'onmouseover_even'" onmouseout="className = 'onmouseout_even'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=C:\Users\Public\Documents\Altium\ESP8266 LED Strip Controller Rough Draft 2\ESP8266 PCB.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=4269.277mil|Location2.X=4279.604mil|Location1.Y=3875.804mil|Location2.Y=3886.202mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=C:\Users\Public\Documents\Altium\ESP8266 LED Strip Controller Rough Draft 2\ESP8266 PCB.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=4269.277mil|Location2.X=4279.604mil|Location1.Y=3875.804mil|Location2.Y=3886.202mil|Absolute=True">Clearance Constraint: (0.059mm &lt; 0.203mm) Between Pad J2-3(107.9mm,99.22mm) on Multi-Layer And Polygon Region (16 hole(s)) Bottom Layer </acronym></a><br></td>
+</tr>
+<tr class="onmouseout_odd" onmouseover="className = 'onmouseover_odd'" onmouseout="className = 'onmouseout_odd'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=C:\Users\Public\Documents\Altium\ESP8266 LED Strip Controller Rough Draft 2\ESP8266 PCB.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=4269.277mil|Location2.X=4279.604mil|Location1.Y=3775.804mil|Location2.Y=3786.202mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=C:\Users\Public\Documents\Altium\ESP8266 LED Strip Controller Rough Draft 2\ESP8266 PCB.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=4269.277mil|Location2.X=4279.604mil|Location1.Y=3775.804mil|Location2.Y=3786.202mil|Absolute=True">Clearance Constraint: (0.059mm &lt; 0.203mm) Between Pad J2-4(107.9mm,96.68mm) on Multi-Layer And Polygon Region (16 hole(s)) Bottom Layer </acronym></a><br></td>
+</tr>
+<tr class="onmouseout_even" onmouseover="className = 'onmouseover_even'" onmouseout="className = 'onmouseout_even'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=C:\Users\Public\Documents\Altium\ESP8266 LED Strip Controller Rough Draft 2\ESP8266 PCB.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=2717.192mil|Location2.X=2729.648mil|Location1.Y=3306.476mil|Location2.Y=3318.835mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=C:\Users\Public\Documents\Altium\ESP8266 LED Strip Controller Rough Draft 2\ESP8266 PCB.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=2717.192mil|Location2.X=2729.648mil|Location1.Y=3306.476mil|Location2.Y=3318.835mil|Absolute=True">Clearance Constraint: (0.2mm &lt; 0.25mm) Between Hole of Pad J3-M1(69.9mm,84.9mm) on Multi-Layer And Polygon Region (16 hole(s)) Bottom Layer </acronym></a><br></td>
+</tr>
+<tr class="onmouseout_odd" onmouseover="className = 'onmouseover_odd'" onmouseout="className = 'onmouseout_odd'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=C:\Users\Public\Documents\Altium\ESP8266 LED Strip Controller Rough Draft 2\ESP8266 PCB.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=2717.192mil|Location2.X=2729.648mil|Location1.Y=2416.712mil|Location2.Y=2429.071mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=C:\Users\Public\Documents\Altium\ESP8266 LED Strip Controller Rough Draft 2\ESP8266 PCB.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=2717.192mil|Location2.X=2729.648mil|Location1.Y=2416.712mil|Location2.Y=2429.071mil|Absolute=True">Clearance Constraint: (0.2mm &lt; 0.25mm) Between Hole of Pad J3-M2(69.9mm,62.3mm) on Multi-Layer And Polygon Region (16 hole(s)) Bottom Layer </acronym></a><br></td>
+</tr>
+<tr class="onmouseout_even" onmouseover="className = 'onmouseover_even'" onmouseout="className = 'onmouseout_even'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=C:\Users\Public\Documents\Altium\ESP8266 LED Strip Controller Rough Draft 2\ESP8266 PCB.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=3461.91mil|Location2.X=3471.16mil|Location1.Y=2410.729mil|Location2.Y=2419.979mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=C:\Users\Public\Documents\Altium\ESP8266 LED Strip Controller Rough Draft 2\ESP8266 PCB.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=3461.91mil|Location2.X=3471.16mil|Location1.Y=2410.729mil|Location2.Y=2419.979mil|Absolute=True">Clearance Constraint: (0.2mm &lt; 0.203mm) Between Pad U1-1(88.9mm,62.3mm) on Multi-Layer And Polygon Region (16 hole(s)) Bottom Layer </acronym></a><br></td>
+</tr>
+<tr class="onmouseout_odd" onmouseover="className = 'onmouseover_odd'" onmouseout="className = 'onmouseout_odd'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=C:\Users\Public\Documents\Altium\ESP8266 LED Strip Controller Rough Draft 2\ESP8266 PCB.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=3328.214mil|Location2.X=3341.784mil|Location1.Y=2478.931mil|Location2.Y=2488.181mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=C:\Users\Public\Documents\Altium\ESP8266 LED Strip Controller Rough Draft 2\ESP8266 PCB.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=3328.214mil|Location2.X=3341.784mil|Location1.Y=2478.931mil|Location2.Y=2488.181mil|Absolute=True">Clearance Constraint: (0.2mm &lt; 0.203mm) Between Pad U1-2(84.9mm,64mm) on Multi-Layer And Polygon Region (16 hole(s)) Bottom Layer </acronym></a><br></td>
+</tr>
+<tr class="onmouseout_even" onmouseover="className = 'onmouseover_even'" onmouseout="className = 'onmouseout_even'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=C:\Users\Public\Documents\Altium\ESP8266 LED Strip Controller Rough Draft 2\ESP8266 PCB.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=3301.768mil|Location2.X=3311.018mil|Location1.Y=2634.944mil|Location2.Y=2648.488mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=C:\Users\Public\Documents\Altium\ESP8266 LED Strip Controller Rough Draft 2\ESP8266 PCB.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=3301.768mil|Location2.X=3311.018mil|Location1.Y=2634.944mil|Location2.Y=2648.488mil|Absolute=True">Clearance Constraint: (0.2mm &lt; 0.203mm) Between Pad U1-4(84.9mm,67.4mm) on Multi-Layer And Polygon Region (16 hole(s)) Bottom Layer </acronym></a><br></td>
+</tr>
+</table></a><hr color="#EEEEEE"><a href="#top" style="font-size: 0.9em">Back to top</a><br><br><a name="IDLJC2MIRBAEMKLV3SZMMBISPYLNVKYBNQQIBZSKPN3FHZVKNJNW3G"><table>
+<tr>
+<th style="text-align : left" colspan="1" class="rule">Un-Routed Net Constraint ( (All) )</th>
+</tr>
+<tr class="onmouseout_odd" onmouseover="className = 'onmouseover_odd'" onmouseout="className = 'onmouseout_odd'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=C:\Users\Public\Documents\Altium\ESP8266 LED Strip Controller Rough Draft 2\ESP8266 PCB.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=3789.911mil|Location2.X=4348.032mil|Location1.Y=3502.362mil|Location2.Y=4006.299mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=C:\Users\Public\Documents\Altium\ESP8266 LED Strip Controller Rough Draft 2\ESP8266 PCB.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=3789.911mil|Location2.X=4348.032mil|Location1.Y=3502.362mil|Location2.Y=4006.299mil|Absolute=True">Un-Routed Net Constraint: Net 3.3V Between Track (96.9mm,91.5mm)(98.804mm,91.5mm) on Top Layer And Pad J2-3(107.9mm,99.22mm) on Multi-Layer </acronym></a><br></td>
+</tr>
+</table></a><hr color="#EEEEEE"><a href="#top" style="font-size: 0.9em">Back to top</a><br><br><a name="IDD1RW2F445VO4MV3DREK42UBNJKWFHXMOJLLMO4GLHDH04DTFBCJE"><table>
+<tr>
+<th style="text-align : left" colspan="1" class="rule">Net Antennae (Tolerance=0mm) (All)</th>
+</tr>
+<tr class="onmouseout_odd" onmouseover="className = 'onmouseover_odd'" onmouseout="className = 'onmouseout_odd'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=C:\Users\Public\Documents\Altium\ESP8266 LED Strip Controller Rough Draft 2\ESP8266 PCB.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=3968.547mil|Location2.X=4042.103mil|Location1.Y=3905.555mil|Location2.Y=4023.661mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=C:\Users\Public\Documents\Altium\ESP8266 LED Strip Controller Rough Draft 2\ESP8266 PCB.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=3968.547mil|Location2.X=4042.103mil|Location1.Y=3905.555mil|Location2.Y=4023.661mil|Absolute=True">Net Antennae: Via (101.6mm,100mm) from Top Layer to Bottom Layer </acronym></a><br></td>
+</tr>
+<tr class="onmouseout_even" onmouseover="className = 'onmouseover_even'" onmouseout="className = 'onmouseout_even'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=C:\Users\Public\Documents\Altium\ESP8266 LED Strip Controller Rough Draft 2\ESP8266 PCB.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=3968.547mil|Location2.X=4042.103mil|Location1.Y=3834.689mil|Location2.Y=3952.794mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=C:\Users\Public\Documents\Altium\ESP8266 LED Strip Controller Rough Draft 2\ESP8266 PCB.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=3968.547mil|Location2.X=4042.103mil|Location1.Y=3834.689mil|Location2.Y=3952.794mil|Absolute=True">Net Antennae: Via (101.6mm,98.2mm) from Top Layer to Bottom Layer </acronym></a><br></td>
+</tr>
+<tr class="onmouseout_odd" onmouseover="className = 'onmouseover_odd'" onmouseout="className = 'onmouseout_odd'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=C:\Users\Public\Documents\Altium\ESP8266 LED Strip Controller Rough Draft 2\ESP8266 PCB.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=3996.106mil|Location2.X=4069.662mil|Location1.Y=3429.177mil|Location2.Y=3547.283mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=C:\Users\Public\Documents\Altium\ESP8266 LED Strip Controller Rough Draft 2\ESP8266 PCB.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=3996.106mil|Location2.X=4069.662mil|Location1.Y=3429.177mil|Location2.Y=3547.283mil|Absolute=True">Net Antennae: Via (102.3mm,87.9mm) from Top Layer to Bottom Layer </acronym></a><br></td>
+</tr>
+<tr class="onmouseout_even" onmouseover="className = 'onmouseover_even'" onmouseout="className = 'onmouseout_even'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=C:\Users\Public\Documents\Altium\ESP8266 LED Strip Controller Rough Draft 2\ESP8266 PCB.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=4078.784mil|Location2.X=4152.339mil|Location1.Y=3905.555mil|Location2.Y=4023.661mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=C:\Users\Public\Documents\Altium\ESP8266 LED Strip Controller Rough Draft 2\ESP8266 PCB.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=4078.784mil|Location2.X=4152.339mil|Location1.Y=3905.555mil|Location2.Y=4023.661mil|Absolute=True">Net Antennae: Via (104.4mm,100mm) from Top Layer to Bottom Layer </acronym></a><br></td>
+</tr>
+<tr class="onmouseout_odd" onmouseover="className = 'onmouseover_odd'" onmouseout="className = 'onmouseout_odd'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=C:\Users\Public\Documents\Altium\ESP8266 LED Strip Controller Rough Draft 2\ESP8266 PCB.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=4078.784mil|Location2.X=4152.339mil|Location1.Y=3834.689mil|Location2.Y=3952.794mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=C:\Users\Public\Documents\Altium\ESP8266 LED Strip Controller Rough Draft 2\ESP8266 PCB.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=4078.784mil|Location2.X=4152.339mil|Location1.Y=3834.689mil|Location2.Y=3952.794mil|Absolute=True">Net Antennae: Via (104.4mm,98.2mm) from Top Layer to Bottom Layer </acronym></a><br></td>
+</tr>
+<tr class="onmouseout_even" onmouseover="className = 'onmouseover_even'" onmouseout="className = 'onmouseout_even'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=C:\Users\Public\Documents\Altium\ESP8266 LED Strip Controller Rough Draft 2\ESP8266 PCB.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=4114.217mil|Location2.X=4187.772mil|Location1.Y=3429.177mil|Location2.Y=3547.283mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=C:\Users\Public\Documents\Altium\ESP8266 LED Strip Controller Rough Draft 2\ESP8266 PCB.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=4114.217mil|Location2.X=4187.772mil|Location1.Y=3429.177mil|Location2.Y=3547.283mil|Absolute=True">Net Antennae: Via (105.3mm,87.9mm) from Top Layer to Bottom Layer </acronym></a><br></td>
+</tr>
+<tr class="onmouseout_odd" onmouseover="className = 'onmouseover_odd'" onmouseout="className = 'onmouseout_odd'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=C:\Users\Public\Documents\Altium\ESP8266 LED Strip Controller Rough Draft 2\ESP8266 PCB.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=2610.28mil|Location2.X=2683.835mil|Location1.Y=4066.972mil|Location2.Y=4185.078mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=C:\Users\Public\Documents\Altium\ESP8266 LED Strip Controller Rough Draft 2\ESP8266 PCB.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=2610.28mil|Location2.X=2683.835mil|Location1.Y=4066.972mil|Location2.Y=4185.078mil|Absolute=True">Net Antennae: Via (67.1mm,104.1mm) from Top Layer to Bottom Layer </acronym></a><br></td>
+</tr>
+<tr class="onmouseout_even" onmouseover="className = 'onmouseover_even'" onmouseout="className = 'onmouseout_even'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=C:\Users\Public\Documents\Altium\ESP8266 LED Strip Controller Rough Draft 2\ESP8266 PCB.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=2708.705mil|Location2.X=2782.26mil|Location1.Y=4066.972mil|Location2.Y=4185.078mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=C:\Users\Public\Documents\Altium\ESP8266 LED Strip Controller Rough Draft 2\ESP8266 PCB.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=2708.705mil|Location2.X=2782.26mil|Location1.Y=4066.972mil|Location2.Y=4185.078mil|Absolute=True">Net Antennae: Via (69.6mm,104.1mm) from Top Layer to Bottom Layer </acronym></a><br></td>
+</tr>
+<tr class="onmouseout_odd" onmouseover="className = 'onmouseover_odd'" onmouseout="className = 'onmouseout_odd'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=C:\Users\Public\Documents\Altium\ESP8266 LED Strip Controller Rough Draft 2\ESP8266 PCB.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=2830.752mil|Location2.X=2904.308mil|Location1.Y=3413.429mil|Location2.Y=3531.535mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=C:\Users\Public\Documents\Altium\ESP8266 LED Strip Controller Rough Draft 2\ESP8266 PCB.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=2830.752mil|Location2.X=2904.308mil|Location1.Y=3413.429mil|Location2.Y=3531.535mil|Absolute=True">Net Antennae: Via (72.7mm,87.5mm) from Top Layer to Bottom Layer </acronym></a><br></td>
+</tr>
+<tr class="onmouseout_even" onmouseover="className = 'onmouseover_even'" onmouseout="className = 'onmouseout_even'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=C:\Users\Public\Documents\Altium\ESP8266 LED Strip Controller Rough Draft 2\ESP8266 PCB.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=2834.689mil|Location2.X=2908.245mil|Location1.Y=3322.878mil|Location2.Y=3440.983mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=C:\Users\Public\Documents\Altium\ESP8266 LED Strip Controller Rough Draft 2\ESP8266 PCB.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=2834.689mil|Location2.X=2908.245mil|Location1.Y=3322.878mil|Location2.Y=3440.983mil|Absolute=True">Net Antennae: Via (72.8mm,85.2mm) from Top Layer to Bottom Layer </acronym></a><br></td>
+</tr>
+<tr class="onmouseout_odd" onmouseover="className = 'onmouseover_odd'" onmouseout="className = 'onmouseout_odd'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=C:\Users\Public\Documents\Altium\ESP8266 LED Strip Controller Rough Draft 2\ESP8266 PCB.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=2940.988mil|Location2.X=3014.544mil|Location1.Y=3417.366mil|Location2.Y=3535.472mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=C:\Users\Public\Documents\Altium\ESP8266 LED Strip Controller Rough Draft 2\ESP8266 PCB.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=2940.988mil|Location2.X=3014.544mil|Location1.Y=3417.366mil|Location2.Y=3535.472mil|Absolute=True">Net Antennae: Via (75.5mm,87.6mm) from Top Layer to Bottom Layer </acronym></a><br></td>
+</tr>
+<tr class="onmouseout_even" onmouseover="className = 'onmouseover_even'" onmouseout="className = 'onmouseout_even'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=C:\Users\Public\Documents\Altium\ESP8266 LED Strip Controller Rough Draft 2\ESP8266 PCB.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=2944.925mil|Location2.X=3018.481mil|Location1.Y=3326.815mil|Location2.Y=3444.92mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=C:\Users\Public\Documents\Altium\ESP8266 LED Strip Controller Rough Draft 2\ESP8266 PCB.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=2944.925mil|Location2.X=3018.481mil|Location1.Y=3326.815mil|Location2.Y=3444.92mil|Absolute=True">Net Antennae: Via (75.6mm,85.3mm) from Top Layer to Bottom Layer </acronym></a><br></td>
+</tr>
+<tr class="onmouseout_odd" onmouseover="className = 'onmouseover_odd'" onmouseout="className = 'onmouseout_odd'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=C:\Users\Public\Documents\Altium\ESP8266 LED Strip Controller Rough Draft 2\ESP8266 PCB.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=2972.484mil|Location2.X=3046.04mil|Location1.Y=2366.185mil|Location2.Y=2484.291mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=C:\Users\Public\Documents\Altium\ESP8266 LED Strip Controller Rough Draft 2\ESP8266 PCB.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=2972.484mil|Location2.X=3046.04mil|Location1.Y=2366.185mil|Location2.Y=2484.291mil|Absolute=True">Net Antennae: Via (76.3mm,60.9mm) from Top Layer to Bottom Layer </acronym></a><br></td>
+</tr>
+<tr class="onmouseout_even" onmouseover="className = 'onmouseover_even'" onmouseout="className = 'onmouseout_even'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=C:\Users\Public\Documents\Altium\ESP8266 LED Strip Controller Rough Draft 2\ESP8266 PCB.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=2972.484mil|Location2.X=3046.04mil|Location1.Y=2476.421mil|Location2.Y=2594.527mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=C:\Users\Public\Documents\Altium\ESP8266 LED Strip Controller Rough Draft 2\ESP8266 PCB.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=2972.484mil|Location2.X=3046.04mil|Location1.Y=2476.421mil|Location2.Y=2594.527mil|Absolute=True">Net Antennae: Via (76.3mm,63.7mm) from Top Layer to Bottom Layer </acronym></a><br></td>
+</tr>
+<tr class="onmouseout_odd" onmouseover="className = 'onmouseover_odd'" onmouseout="className = 'onmouseout_odd'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=C:\Users\Public\Documents\Altium\ESP8266 LED Strip Controller Rough Draft 2\ESP8266 PCB.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=3007.917mil|Location2.X=3081.473mil|Location1.Y=2665.398mil|Location2.Y=2783.503mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=C:\Users\Public\Documents\Altium\ESP8266 LED Strip Controller Rough Draft 2\ESP8266 PCB.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=3007.917mil|Location2.X=3081.473mil|Location1.Y=2665.398mil|Location2.Y=2783.503mil|Absolute=True">Net Antennae: Via (77.2mm,68.5mm) from Top Layer to Bottom Layer </acronym></a><br></td>
+</tr>
+<tr class="onmouseout_even" onmouseover="className = 'onmouseover_even'" onmouseout="className = 'onmouseout_even'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=C:\Users\Public\Documents\Altium\ESP8266 LED Strip Controller Rough Draft 2\ESP8266 PCB.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=3011.854mil|Location2.X=3085.41mil|Location1.Y=2862.248mil|Location2.Y=2980.354mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=C:\Users\Public\Documents\Altium\ESP8266 LED Strip Controller Rough Draft 2\ESP8266 PCB.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=3011.854mil|Location2.X=3085.41mil|Location1.Y=2862.248mil|Location2.Y=2980.354mil|Absolute=True">Net Antennae: Via (77.3mm,73.5mm) from Top Layer to Bottom Layer </acronym></a><br></td>
+</tr>
+<tr class="onmouseout_odd" onmouseover="className = 'onmouseover_odd'" onmouseout="className = 'onmouseout_odd'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=C:\Users\Public\Documents\Altium\ESP8266 LED Strip Controller Rough Draft 2\ESP8266 PCB.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=3066.972mil|Location2.X=3140.528mil|Location1.Y=2763.823mil|Location2.Y=2881.928mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=C:\Users\Public\Documents\Altium\ESP8266 LED Strip Controller Rough Draft 2\ESP8266 PCB.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=3066.972mil|Location2.X=3140.528mil|Location1.Y=2763.823mil|Location2.Y=2881.928mil|Absolute=True">Net Antennae: Via (78.7mm,71mm) from Top Layer to Bottom Layer </acronym></a><br></td>
+</tr>
+<tr class="onmouseout_even" onmouseover="className = 'onmouseover_even'" onmouseout="className = 'onmouseout_even'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=C:\Users\Public\Documents\Altium\ESP8266 LED Strip Controller Rough Draft 2\ESP8266 PCB.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=3082.72mil|Location2.X=3156.276mil|Location1.Y=2366.185mil|Location2.Y=2484.291mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=C:\Users\Public\Documents\Altium\ESP8266 LED Strip Controller Rough Draft 2\ESP8266 PCB.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=3082.72mil|Location2.X=3156.276mil|Location1.Y=2366.185mil|Location2.Y=2484.291mil|Absolute=True">Net Antennae: Via (79.1mm,60.9mm) from Top Layer to Bottom Layer </acronym></a><br></td>
+</tr>
+<tr class="onmouseout_odd" onmouseover="className = 'onmouseover_odd'" onmouseout="className = 'onmouseout_odd'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=C:\Users\Public\Documents\Altium\ESP8266 LED Strip Controller Rough Draft 2\ESP8266 PCB.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=3082.72mil|Location2.X=3156.276mil|Location1.Y=2472.484mil|Location2.Y=2590.59mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=C:\Users\Public\Documents\Altium\ESP8266 LED Strip Controller Rough Draft 2\ESP8266 PCB.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=3082.72mil|Location2.X=3156.276mil|Location1.Y=2472.484mil|Location2.Y=2590.59mil|Absolute=True">Net Antennae: Via (79.1mm,63.6mm) from Top Layer to Bottom Layer </acronym></a><br></td>
+</tr>
+<tr class="onmouseout_even" onmouseover="className = 'onmouseover_even'" onmouseout="className = 'onmouseout_even'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=C:\Users\Public\Documents\Altium\ESP8266 LED Strip Controller Rough Draft 2\ESP8266 PCB.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=3094.532mil|Location2.X=3168.087mil|Location1.Y=2657.524mil|Location2.Y=2775.629mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=C:\Users\Public\Documents\Altium\ESP8266 LED Strip Controller Rough Draft 2\ESP8266 PCB.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=3094.532mil|Location2.X=3168.087mil|Location1.Y=2657.524mil|Location2.Y=2775.629mil|Absolute=True">Net Antennae: Via (79.4mm,68.3mm) from Top Layer to Bottom Layer </acronym></a><br></td>
+</tr>
+<tr class="onmouseout_odd" onmouseover="className = 'onmouseover_odd'" onmouseout="className = 'onmouseout_odd'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=C:\Users\Public\Documents\Altium\ESP8266 LED Strip Controller Rough Draft 2\ESP8266 PCB.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=3098.468mil|Location2.X=3172.024mil|Location1.Y=2862.248mil|Location2.Y=2980.354mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=C:\Users\Public\Documents\Altium\ESP8266 LED Strip Controller Rough Draft 2\ESP8266 PCB.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=3098.468mil|Location2.X=3172.024mil|Location1.Y=2862.248mil|Location2.Y=2980.354mil|Absolute=True">Net Antennae: Via (79.5mm,73.5mm) from Top Layer to Bottom Layer </acronym></a><br></td>
+</tr>
+<tr class="onmouseout_even" onmouseover="className = 'onmouseover_even'" onmouseout="className = 'onmouseout_even'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=C:\Users\Public\Documents\Altium\ESP8266 LED Strip Controller Rough Draft 2\ESP8266 PCB.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=3507.917mil|Location2.X=3581.473mil|Location1.Y=3283.508mil|Location2.Y=3401.613mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=C:\Users\Public\Documents\Altium\ESP8266 LED Strip Controller Rough Draft 2\ESP8266 PCB.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=3507.917mil|Location2.X=3581.473mil|Location1.Y=3283.508mil|Location2.Y=3401.613mil|Absolute=True">Net Antennae: Via (89.9mm,84.2mm) from Top Layer to Bottom Layer </acronym></a><br></td>
+</tr>
+<tr class="onmouseout_odd" onmouseover="className = 'onmouseover_odd'" onmouseout="className = 'onmouseout_odd'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=C:\Users\Public\Documents\Altium\ESP8266 LED Strip Controller Rough Draft 2\ESP8266 PCB.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=3622.09mil|Location2.X=3695.646mil|Location1.Y=3283.508mil|Location2.Y=3401.613mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=C:\Users\Public\Documents\Altium\ESP8266 LED Strip Controller Rough Draft 2\ESP8266 PCB.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=3622.09mil|Location2.X=3695.646mil|Location1.Y=3283.508mil|Location2.Y=3401.613mil|Absolute=True">Net Antennae: Via (92.8mm,84.2mm) from Top Layer to Bottom Layer </acronym></a><br></td>
+</tr>
+<tr class="onmouseout_even" onmouseover="className = 'onmouseover_even'" onmouseout="className = 'onmouseout_even'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=C:\Users\Public\Documents\Altium\ESP8266 LED Strip Controller Rough Draft 2\ESP8266 PCB.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=3846.5mil|Location2.X=3920.056mil|Location1.Y=3905.555mil|Location2.Y=4023.661mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=C:\Users\Public\Documents\Altium\ESP8266 LED Strip Controller Rough Draft 2\ESP8266 PCB.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=3846.5mil|Location2.X=3920.056mil|Location1.Y=3905.555mil|Location2.Y=4023.661mil|Absolute=True">Net Antennae: Via (98.5mm,100mm) from Top Layer to Bottom Layer </acronym></a><br></td>
+</tr>
+<tr class="onmouseout_odd" onmouseover="className = 'onmouseover_odd'" onmouseout="className = 'onmouseout_odd'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=C:\Users\Public\Documents\Altium\ESP8266 LED Strip Controller Rough Draft 2\ESP8266 PCB.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=3846.5mil|Location2.X=3920.056mil|Location1.Y=3791.382mil|Location2.Y=3909.487mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=C:\Users\Public\Documents\Altium\ESP8266 LED Strip Controller Rough Draft 2\ESP8266 PCB.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=3846.5mil|Location2.X=3920.056mil|Location1.Y=3791.382mil|Location2.Y=3909.487mil|Absolute=True">Net Antennae: Via (98.5mm,97.1mm) from Top Layer to Bottom Layer </acronym></a><br></td>
+</tr>
+<tr class="onmouseout_even" onmouseover="className = 'onmouseover_even'" onmouseout="className = 'onmouseout_even'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=C:\Users\Public\Documents\Altium\ESP8266 LED Strip Controller Rough Draft 2\ESP8266 PCB.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=3885.87mil|Location2.X=3959.426mil|Location1.Y=3429.177mil|Location2.Y=3547.283mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=C:\Users\Public\Documents\Altium\ESP8266 LED Strip Controller Rough Draft 2\ESP8266 PCB.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=3885.87mil|Location2.X=3959.426mil|Location1.Y=3429.177mil|Location2.Y=3547.283mil|Absolute=True">Net Antennae: Via (99.5mm,87.9mm) from Top Layer to Bottom Layer </acronym></a><br></td>
+</tr>
+</table></a><hr color="#EEEEEE"><a href="#top" style="font-size: 0.9em">Back to top</a><br><br><a name="IDD2TQ4ZHWB2OHNVISHWUNHVPOCFHTPIIFI34OVFICGCD4BGIBTVKB"><table>
+<tr>
+<th style="text-align : left" colspan="1" class="rule">Board Clearance Constraint (Gap=0mm) (All)</th>
+</tr>
+<tr class="onmouseout_odd" onmouseover="className = 'onmouseover_odd'" onmouseout="className = 'onmouseout_odd'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=C:\Users\Public\Documents\Altium\ESP8266 LED Strip Controller Rough Draft 2\ESP8266 PCB.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=3439.683mil|Location2.X=3445.932mil|Location1.Y=3301.344mil|Location2.Y=3307.593mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=C:\Users\Public\Documents\Altium\ESP8266 LED Strip Controller Rough Draft 2\ESP8266 PCB.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=3439.683mil|Location2.X=3445.932mil|Location1.Y=3301.344mil|Location2.Y=3307.593mil|Absolute=True">Board Outline Clearance(Outline Edge): (Collision &lt; 0.2mm) Between Board Edge And Polygon Region (16 hole(s)) Bottom Layer </acronym></a><br></td>
+</tr>
+</table></a><hr color="#EEEEEE"><a href="#top" style="font-size: 0.9em">Back to top</a><br><br></body>
+</html>

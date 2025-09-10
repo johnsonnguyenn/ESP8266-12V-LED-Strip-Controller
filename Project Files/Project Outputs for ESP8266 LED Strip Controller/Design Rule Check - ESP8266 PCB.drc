@@ -1,0 +1,104 @@
+Protel Design System Design Rule Check
+PCB File : C:\Users\Public\Documents\Altium\ESP8266 LED Strip Controller Rough Draft 2\ESP8266 PCB.PcbDoc
+Date     : 2025-09-10
+Time     : 7:18:23 PM
+
+Processing Rule : Clearance Constraint (Gap=0.203mm) (All),(All)
+   Violation between Clearance Constraint: (0.2mm < 0.203mm) Between Pad D1-1(95.8mm,62.86mm) on Multi-Layer And Polygon Region (16 hole(s)) Bottom Layer 
+   Violation between Clearance Constraint: (0.2mm < 0.25mm) Between Hole of Pad Free-MH(107.85mm,110.025mm) on Multi-Layer And Polygon Region (16 hole(s)) Bottom Layer 
+   Violation between Clearance Constraint: (0.2mm < 0.25mm) Between Hole of Pad Free-MH(107.925mm,58.55mm) on Multi-Layer And Polygon Region (16 hole(s)) Bottom Layer 
+   Violation between Clearance Constraint: (0.2mm < 0.25mm) Between Hole of Pad Free-MH(67.05mm,58.55mm) on Multi-Layer And Polygon Region (16 hole(s)) Bottom Layer 
+   Violation between Clearance Constraint: (0.2mm < 0.25mm) Between Hole of Pad Free-MH(67mm,109.825mm) on Multi-Layer And Polygon Region (16 hole(s)) Bottom Layer 
+   Violation between Clearance Constraint: (0.061mm < 0.203mm) Between Pad J1-1(104.4mm,76mm) on Multi-Layer And Polygon Region (16 hole(s)) Bottom Layer 
+   Violation between Clearance Constraint: (0.061mm < 0.203mm) Between Pad J1-3(109.1mm,72.8mm) on Multi-Layer And Polygon Region (16 hole(s)) Bottom Layer 
+   Violation between Clearance Constraint: (0.059mm < 0.203mm) Between Pad J2-1(107.9mm,104.3mm) on Multi-Layer And Polygon Region (16 hole(s)) Bottom Layer 
+   Violation between Clearance Constraint: (0.059mm < 0.203mm) Between Pad J2-2(107.9mm,101.76mm) on Multi-Layer And Polygon Region (16 hole(s)) Bottom Layer 
+   Violation between Clearance Constraint: (0.059mm < 0.203mm) Between Pad J2-3(107.9mm,99.22mm) on Multi-Layer And Polygon Region (16 hole(s)) Bottom Layer 
+   Violation between Clearance Constraint: (0.059mm < 0.203mm) Between Pad J2-4(107.9mm,96.68mm) on Multi-Layer And Polygon Region (16 hole(s)) Bottom Layer 
+   Violation between Clearance Constraint: (0.2mm < 0.25mm) Between Hole of Pad J3-M1(69.9mm,84.9mm) on Multi-Layer And Polygon Region (16 hole(s)) Bottom Layer 
+   Violation between Clearance Constraint: (0.2mm < 0.25mm) Between Hole of Pad J3-M2(69.9mm,62.3mm) on Multi-Layer And Polygon Region (16 hole(s)) Bottom Layer 
+   Violation between Clearance Constraint: (0.2mm < 0.203mm) Between Pad U1-1(88.9mm,62.3mm) on Multi-Layer And Polygon Region (16 hole(s)) Bottom Layer 
+   Violation between Clearance Constraint: (0.2mm < 0.203mm) Between Pad U1-2(84.9mm,64mm) on Multi-Layer And Polygon Region (16 hole(s)) Bottom Layer 
+   Violation between Clearance Constraint: (0.2mm < 0.203mm) Between Pad U1-4(84.9mm,67.4mm) on Multi-Layer And Polygon Region (16 hole(s)) Bottom Layer 
+Rule Violations :16
+
+Processing Rule : Short-Circuit Constraint (Allowed=No) (All),(All)
+Rule Violations :0
+
+Processing Rule : Un-Routed Net Constraint ( (All) )
+   Violation between Un-Routed Net Constraint: Net 3.3V Between Track (96.9mm,91.5mm)(98.804mm,91.5mm) on Top Layer And Pad J2-3(107.9mm,99.22mm) on Multi-Layer 
+Rule Violations :1
+
+Processing Rule : Modified Polygon (Allow modified: No), (Allow shelved: No)
+Rule Violations :0
+
+Processing Rule : Width Constraint (Min=0.203mm) (Max=25.4mm) (Preferred=0.203mm) (All)
+Rule Violations :0
+
+Processing Rule : Routing Topology Rule(Topology=Shortest) (All)
+Rule Violations :0
+
+Processing Rule : Power Plane Connect Rule(Direct Connect )(Expansion=0.508mm) (Conductor Width=0.254mm) (Air Gap=0.254mm) (Entries=4) (InPadClass('PowerPads'))
+Rule Violations :0
+
+Processing Rule : Power Plane Connect Rule(Relief Connect )(Expansion=0.3mm) (Conductor Width=0.203mm) (Air Gap=0.203mm) (Entries=4) (All)
+Rule Violations :0
+
+Processing Rule : Minimum Annular Ring (Minimum=0.076mm) (All)
+Rule Violations :0
+
+Processing Rule : Hole Size Constraint (Min=0.3mm) (Max=6.3mm) (All)
+Rule Violations :0
+
+Processing Rule : Hole To Hole Clearance (Gap=0.25mm) (All),(All)
+Rule Violations :0
+
+Processing Rule : Minimum Solder Mask Sliver (Gap=0mm) (All),(All)
+Rule Violations :0
+
+Processing Rule : Silk To Solder Mask (Clearance=0.127mm) (IsPad),(All)
+Rule Violations :0
+
+Processing Rule : Silk to Silk (Clearance=0mm) (All),(All)
+Rule Violations :0
+
+Processing Rule : Net Antennae (Tolerance=0mm) (All)
+   Violation between Net Antennae: Via (101.6mm,100mm) from Top Layer to Bottom Layer 
+   Violation between Net Antennae: Via (101.6mm,98.2mm) from Top Layer to Bottom Layer 
+   Violation between Net Antennae: Via (102.3mm,87.9mm) from Top Layer to Bottom Layer 
+   Violation between Net Antennae: Via (104.4mm,100mm) from Top Layer to Bottom Layer 
+   Violation between Net Antennae: Via (104.4mm,98.2mm) from Top Layer to Bottom Layer 
+   Violation between Net Antennae: Via (105.3mm,87.9mm) from Top Layer to Bottom Layer 
+   Violation between Net Antennae: Via (67.1mm,104.1mm) from Top Layer to Bottom Layer 
+   Violation between Net Antennae: Via (69.6mm,104.1mm) from Top Layer to Bottom Layer 
+   Violation between Net Antennae: Via (72.7mm,87.5mm) from Top Layer to Bottom Layer 
+   Violation between Net Antennae: Via (72.8mm,85.2mm) from Top Layer to Bottom Layer 
+   Violation between Net Antennae: Via (75.5mm,87.6mm) from Top Layer to Bottom Layer 
+   Violation between Net Antennae: Via (75.6mm,85.3mm) from Top Layer to Bottom Layer 
+   Violation between Net Antennae: Via (76.3mm,60.9mm) from Top Layer to Bottom Layer 
+   Violation between Net Antennae: Via (76.3mm,63.7mm) from Top Layer to Bottom Layer 
+   Violation between Net Antennae: Via (77.2mm,68.5mm) from Top Layer to Bottom Layer 
+   Violation between Net Antennae: Via (77.3mm,73.5mm) from Top Layer to Bottom Layer 
+   Violation between Net Antennae: Via (78.7mm,71mm) from Top Layer to Bottom Layer 
+   Violation between Net Antennae: Via (79.1mm,60.9mm) from Top Layer to Bottom Layer 
+   Violation between Net Antennae: Via (79.1mm,63.6mm) from Top Layer to Bottom Layer 
+   Violation between Net Antennae: Via (79.4mm,68.3mm) from Top Layer to Bottom Layer 
+   Violation between Net Antennae: Via (79.5mm,73.5mm) from Top Layer to Bottom Layer 
+   Violation between Net Antennae: Via (89.9mm,84.2mm) from Top Layer to Bottom Layer 
+   Violation between Net Antennae: Via (92.8mm,84.2mm) from Top Layer to Bottom Layer 
+   Violation between Net Antennae: Via (98.5mm,100mm) from Top Layer to Bottom Layer 
+   Violation between Net Antennae: Via (98.5mm,97.1mm) from Top Layer to Bottom Layer 
+   Violation between Net Antennae: Via (99.5mm,87.9mm) from Top Layer to Bottom Layer 
+Rule Violations :26
+
+Processing Rule : Board Clearance Constraint (Gap=0mm) (All)
+   Violation between Board Outline Clearance(Outline Edge): (Collision < 0.2mm) Between Board Edge And Polygon Region (16 hole(s)) Bottom Layer 
+Rule Violations :1
+
+Processing Rule : Height Constraint (Min=0mm) (Max=1816.048mm) (Prefered=12.7mm) (All)
+Rule Violations :0
+
+
+Violations Detected : 44
+Waived Violations : 0
+Time Elapsed        : 00:00:00
